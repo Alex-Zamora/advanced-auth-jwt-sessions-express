@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        // Indicates that all TypeScript source files are inside the src directory.
+        "rootDir": "./src",
+        // Sets src as the base directory for module resolution.
+        "baseUrl": "./src",
+        // libs availables in TS
+        "lib": ["ES2024"],
+        // Version of JS when the TS was compiled
+        "target": "ES2024",
+        "moduleResolution": "nodenext",
+        "module": "nodenext",
+        "strict": false,
+        "sourceMap": true,
+        // Support to CommonJs and ESC Modules
+        "esModuleInterop": true,
+        "declaration": true,
+        "skipLibCheck": true,
+        "paths": {
+            "@config/*": ["config/*"],
+            "@middlewares/*": ["middlewares/*"],
+            "@controllers/*": ["controllers/*"],
+            "@models/*": ["models/*"],
+            "@routes/*": ["routes/*"],
+            "@utils/*": ["utils/*"],
+            "@validators/*": ["validators/*"],
+            "@types/*": ["types/*"],
+            "@services/*": ["services/*"],
+            "@keys/*": ["keys/*"]
+        }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules", "dist"]
+}

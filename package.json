@@ -1,0 +1,35 @@
+{
+    "name": "linktree-clone",
+    "version": "1.0.0",
+    "description": "Link Tree clone with Node, Express, TypeScript and Mongo",
+    "main": "dist/server.ts",
+    "scripts": {
+        "dev": "tsx watch src/server.ts",
+        "build": "tsc",
+        "start": "node dist/server.js",
+        "generate-keys": "node src/scripts/jwt-key-generation.ts"
+    },
+    "author": "Alejandro Zamora",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "date-fns": "^4.1.0",
+        "dotenv": "^17.2.1",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.17.1",
+        "zod": "^4.0.17"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^6.0.0",
+        "@types/cookie-parser": "^1.4.9",
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.3",
+        "@types/jsonwebtoken": "^9.0.10",
+        "prettier": "^3.6.2",
+        "tsx": "^4.20.4",
+        "typescript": "^5.9.2"
+    }
+}
