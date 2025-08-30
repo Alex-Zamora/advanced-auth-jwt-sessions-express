@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verifyJWT } from '@utils/jwt';
 import { AppError } from '@utils/AppError';
+import Session from '@models/Session.model';
 
 export const authentication = async (req: Request, _: Response, next: NextFunction) => {
     try {
@@ -10,8 +11,14 @@ export const authentication = async (req: Request, _: Response, next: NextFuncti
                 message: 'Invalid or expired token',
             });
 
-        const { id } = await verifyJWT('accessPublicKey', accessToken);
-        req.userId = id;
+        const { userId, sessionId } = await verifyJWT('accessPublicKey', accessToken),
+            session = await Session.findById(sessionId);
+
+        if (!session || session.expiresAt.getTime() <= Date.now())
+            throw AppError.unauthorized({ message: 'Session expired' });
+
+        req.userId = userId;
+        req.sessionId = sessionId;
 
         next();
     } catch (error) {
