@@ -15,7 +15,7 @@ const DEFAULT_CONFIG: CookieOptions = {
     },
     REFRESH_PATH = `${config.BASE_PATH}/auth/refresh-token`;
 
-const getRefreshTokenOptions = (): CookieOptions => {
+export const getRefreshTokenOptions = (): CookieOptions => {
     const expiresIn = config.JWT_REFRESH_EXPIRES_IN,
         expires = calculateExpirationDate(expiresIn);
 
@@ -27,7 +27,7 @@ const getRefreshTokenOptions = (): CookieOptions => {
     };
 };
 
-const getAccessTokenOptions = (): CookieOptions => {
+export const getAccessTokenOptions = (): CookieOptions => {
     const expiresIn = config.JWT_ACCESS_EXPIRES_IN,
         expires = calculateExpirationDate(expiresIn);
 
