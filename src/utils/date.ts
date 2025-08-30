@@ -1,5 +1,7 @@
 import { add } from 'date-fns';
 
+export const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000;
+
 export const calculateExpirationDate = (expiresIn: string = '15m'): Date => {
     // Match number + unit (m = minutes, h = hours, d = days)
     const match = expiresIn.match(/^(\d+)([mhd])$/);
