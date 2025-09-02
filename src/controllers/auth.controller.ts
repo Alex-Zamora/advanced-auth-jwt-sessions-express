@@ -64,7 +64,7 @@ export const refreshToken = catchErrors(async (req: Request, res: Response) => {
 
     const { accessToken, newRefreshToken } = await refreshService(token, res);
 
-    if (newRefreshToken) res.cookie('refreshToken', refreshToken, getRefreshTokenOptions());
+    if (newRefreshToken) res.cookie('refreshToken', newRefreshToken, getRefreshTokenOptions());
 
     return res.status(200).cookie('accessToken', accessToken, getAccessTokenOptions()).json({
         message: 'Refresh token successfully updated',
